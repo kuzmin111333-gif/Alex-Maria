@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Wedding Invitation</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;500&family=Inter:wght@300&display=swap" rel="stylesheet">
+
+<style>
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #f7f5f2;
+  color: #2d2d2d;
+}
+
+h1,h2 {
+  font-family: 'Cormorant Garamond', serif;
+  letter-spacing: 1px;
+}
+
+section {
+  padding: 120px 20px;
+  text-align: center;
+  max-width: 900px;
+  margin: auto;
+}
+
+.arrow {
+  font-size: 24px;
+  opacity: 0.4;
+  margin-top: 40px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(10px)}
+}
+
+/* первая страница */
+
+.card{
+  position:relative;
+  height:100vh;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  overflow:hidden;
+}
+
+.open-btn {
+  margin-top: 30px;
+  padding: 12px 28px;
+  border-radius: 30px;
+  border: none;
+  background: #c9a47e;
+  color: white;
+  cursor: pointer;
+}
+
+/* таймер */
+
+.timer {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  font-size: 28px;
+}
+
+/* дресс код */
+
+.colors {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.color {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.color:hover {
+  transform: scale(1.2);
+}
+
+.color1{background:#d8c3a5}
+.color2{background:#e8dcd0}
+.color3{background:#cbb8a9}
+.color4{background:#bfa58a}
+.color5{background:#f2ebe5}
+
+/* пожелания */
+
+.wishes {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.wish {
+  width: 90px;
+  height: 90px;
+  border-radius: 15px;
+  background: white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* календарь компактный */
+
+.calendar {
+  width: 250px;
+  margin: 40px auto;
+}
+
+.weekdays, .days {
+  display:grid;
+  grid-template-columns: repeat(7,1fr);
+  font-size:12px;
+}
+
+.days span{
+  padding:10px;
+  position:relative;
+}
+
+.wedding-day.active::after{
+  content:"❤";
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  color:#c9a47e;
+}
+
+.hidden {
+  display:none;
+}
+
+
+.invite-gif{
+width:260px;
+border-radius:20px;
+margin-bottom:25px;
+box-shadow:0 10px 40px rgba(0,0,0,0.15);
+animation:fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.gif-bg{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background-image:url("https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3B2dGZ5cDhuN2tzejRwOWluaXA2NjJ1aDQ1MXBpOXh1dXlvZTNvaiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/PfA12OqjxhWCH2KjAS/giphy.webp");
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+z-index:0;
+}
+
+/* затемнение для красивого текста */
+
+.gif-bg::after{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.25);
+}
+
+/* текст поверх фона */
+
+.card h1,
+.card p,
+.open-btn{
+position:relative;
+z-index:2;
+color:white;
+}
+
+.couple-section{
+position:relative;
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+color:white;
+}
+
+.couple-section{
+  position:relative;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  color:white;
+}
+
+.couple-bg{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-image:url("couple.jpg");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  z-index:0;
+}
+
+/* Полное затемнение */
+.couple-bg::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.4); /* 0.6 — сила затемнения, можно 0.7 для темнее */
+  z-index:1;
+}
+
+/* Текст поверх */
+.couple-section h1,
+.couple-section p,
+.couple-section .arrow{
+  position:relative;
+  z-index:2;
+}
+</style>
+</head>
+
+<body>
+
+<!-- страница открытка -->
+
+<div class="card" id="start">
+
+<div class="gif-bg"></div>
+
+<h1>Свадебная открытка</h1>
+<p>Нажмите чтобы открыть приглашение</p>
+<button class="open-btn" onclick="openInvite()">Открыть</button>
+
+</div>
+
+
+
+<!-- основной сайт -->
+
+<div id="main" class="hidden">
+
+  <section class="couple-section">
+
+  <div class="couple-bg"></div>
+
+  <h1>Алексей & Мария</h1>
+  <p>15 августа 2026</p>
+
+  <div class="arrow">↓</div>
+
+  </section>
+
+<section>
+<h2>До нашей свадьбы</h2>
+<div class="timer">
+<div id="days"></div>
+<div id="hours"></div>
+<div id="minutes"></div>
+</div>
+<div class="arrow">↓</div>
+</section>
+
+<section>
+<h2>Дата</h2>
+
+<div class="calendar">
+<div class="weekdays">
+<span>Mon</span><span>Tue</span><span>Wed</span>
+<span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+</div>
+
+<div class="days">
+<span></span><span></span>
+<span>1</span><span>2</span><span>3</span><span>4</span>
+<span>5</span><span>6</span><span>7</span>
+<span>8</span><span>9</span><span>10</span>
+<span>11</span><span>12</span><span>13</span>
+<span>14</span><span class="wedding-day"></span>
+<span>16</span><span>17</span><span>18</span>
+<span>19</span><span>20</span><span>21</span><span>22</span>
+<span>23</span><span>24</span><span>25</span><span>26</span>
+<span>27</span><span>28</span><span>29</span><span>30</span>
+</div>
+
+</div>
+
+<div class="arrow">↓</div>
+</section>
+
+<section>
+<h2>Дресс код</h2>
+<div class="colors">
+<div class="color color1"></div>
+<div class="color color2"></div>
+<div class="color color3"></div>
+<div class="color color4"></div>
+<div class="color color5"></div>
+</div>
+<div class="arrow">↓</div>
+</section>
+
+<section>
+<h2>Пожелания</h2>
+
+<div class="wishes">
+<div class="wish" onclick="showWish('flowers')">🌸</div>
+<div class="wish" onclick="showWish('kids')">👶</div>
+<div class="wish" onclick="showWish('gifts')">🎁</div>
+</div>
+
+<p id="wishText"></p>
+
+</section>
+
+</div>
+
+<script>
+
+function openInvite(){
+document.getElementById("start").style.display="none"
+document.getElementById("main").classList.remove("hidden")
+}
+
+/* таймер */
+
+const weddingDate = new Date("Aug 15 2026 15:00").getTime()
+
+setInterval(()=>{
+const now = new Date().getTime()
+const diff = weddingDate - now
+
+document.getElementById("days").innerText =
+Math.floor(diff/(1000*60*60*24))+" дней"
+
+document.getElementById("hours").innerText =
+Math.floor(diff%(1000*60*60*24)/(1000*60*60))+" ч"
+
+document.getElementById("minutes").innerText =
+Math.floor(diff%(1000*60*60)/(1000*60))+" мин"
+
+},1000)
+
+/* календарь */
+
+const day = document.querySelector(".wedding-day")
+
+window.addEventListener("scroll", ()=>{
+if(day.getBoundingClientRect().top < window.innerHeight-80){
+day.classList.add("active")
+}
+})
+
+/* пожелания */
+
+function showWish(type){
+
+const text = {
+flowers:"Пожалуйста, вместо цветов выберите бутылочку вина.",
+kids:"Мы хотим провести вечер в кругу взрослых.",
+gifts:"Лучший подарок — вклад в наше путешествие."
+}
+
+document.getElementById("wishText").innerText = text[type]
+
+}
+
+</script>
+
+</body>
+</html>
