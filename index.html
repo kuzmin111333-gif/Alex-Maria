@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Wedding Invitation</title>
+<title>Алексей и Мария</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;500&family=Inter:wght@300&display=swap" rel="stylesheet">
 
@@ -12,7 +12,7 @@
 
 body {
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Courier New', monospace;;
   background: #f7f5f2;
   color: #2d2d2d;
 }
@@ -157,7 +157,7 @@ width:260px;
 border-radius:20px;
 margin-bottom:25px;
 box-shadow:0 10px 40px rgba(0,0,0,0.15);
-animation:fadeIn 1.5s ease;
+animation:fadeIn 3s ease;
 }
 
 @keyframes fadeIn{
@@ -258,6 +258,101 @@ color:white;
   position:relative;
   z-index:2;
 }
+
+.text-photo-section{
+position:relative;
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+overflow:hidden;
+color:white;
+padding:40px 20px;
+}
+/* вторая фотка */
+.text-bg{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background-image:url("rest.jpg");
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+z-index:0;
+}
+
+/* затемнение всей фотографии */
+
+.text-bg::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.4); /* 0.6 — сила затемнения, можно 0.7 для темнее */
+  z-index:1;
+}
+
+/* текст поверх */
+
+.text-content{
+position:relative;
+z-index:2;
+max-width:600px;
+}
+
+.text-content p{
+font-size:18px;
+line-height:1.6;
+}
+ 
+ /* тайминг */
+ .timeline-section{
+ min-height:100vh;
+ padding:120px 20px;
+ text-align:center;
+ background:#f8f6f3;
+ }
+
+ .timeline{
+ max-width:600px;
+ margin:80px auto;
+ display:flex;
+ flex-direction:column;
+ gap:80px;
+ }
+
+ .timeline-item{
+ opacity:0.2;
+ transform:translateY(40px);
+ transition:all 0.8s ease;
+ }
+
+ .timeline-item.active{
+ opacity:1;
+ transform:translateY(0);
+ }
+
+ .timeline-item .time{
+ font-size:14px;
+ letter-spacing:2px;
+ opacity:0.6;
+ }
+
+ .timeline-item h3{
+ margin:10px 0;
+ font-size:24px;
+ }
+
+ .timeline-item p{
+ font-size:16px;
+ opacity:0.8;
+ }
 </style>
 </head>
 
@@ -288,22 +383,25 @@ color:white;
   <h1>Алексей & Мария</h1>
   <p>15 августа 2026</p>
 
-  <div class="arrow">↓</div>
+  <div class="arrow" style="font-size: 100px;">↓</div>
 
   </section>
 
 <section>
-<h2>До нашей свадьбы</h2>
-<div class="timer">
-<div id="days"></div>
-<div id="hours"></div>
-<div id="minutes"></div>
-</div>
-<div class="arrow">↓</div>
+  <h1>Дорогие гости!</h1>
+  <p></p>Приглашаем Вас разделить </span>
+ <p>с нами радость особенного</p>
+ <p>для нас саобытия и</p>
+ <p>стать частью нашей</p>
+  <p>семейной истории!</p>
+
+  <div class="arrow" style="font-size: 100px;">↓</div>
+
 </section>
 
 <section>
-<h2>Дата</h2>
+<h1>Дата</h1>
+<h2>15 АВГУСТА 2026 ❤ </h2>
 
 <div class="calendar">
 <div class="weekdays">
@@ -326,7 +424,78 @@ color:white;
 
 </div>
 
-<div class="arrow">↓</div>
+<h2>До нашей свадьбы</h2>
+<div class="timer">
+<div id="days"></div>
+<div id="hours"></div>
+<div id="minutes"></div>
+</div>
+
+<div class="arrow" style="font-size: 100px;">↓</div>
+
+</section> 
+
+
+
+<section class="text-photo-section">
+
+<div class="text-bg"></div>
+
+<div class="text-content">
+  <h1>Место проведения </h1>
+  <h2>Наш праздник пройдёт </h2>
+  <p>В ПАРКЕ-ОТЕЛЕ</p>
+  <p>"KRUTON"</p>
+  <p>БАНКЕТНЫЙ ЗАЛ</p>
+  <p>"ДИКАЯ ЯГОДА"</p>
+  <p>по адресу г. Саратов, ул. Пушкина 4а</p>
+  <div class="arrow" style="font-size: 100px;">↓</div>
+
+
+</section>
+
+<section>
+  <h1>КАРТА </h1>
+  <p>Для Вашего удобства мы подготовили карту.</p>
+  <p>Надеемся, что Вы легко найдёте место проведения </p>
+  <p>свадьбы и порадуете нас своим присутствием!</p>
+ <a href="https://2gis.ru/saratov/geo/6052334769537063/46.034324%2C51.533296?m=46.034329%2C51.533296%2F11" class="open-btn" target="_blank">Открыть</a>
+ <div class="arrow" style="font-size: 100px;">↓</div>
+
+</section>
+
+<section class="timeline-section">
+
+<h2>Программа дня</h2>
+
+<div class="timeline">
+
+  <div class="timeline-item">
+    <span class="time">14:00</span>
+    <h3>Сбор гостей</h3>
+    <p>Лёгкий фуршет и приветственные напитки</p>
+  </div>
+
+  <div class="timeline-item">
+    <span class="time">15:00</span>
+    <h3>Церемония</h3>
+    <p>Самый трогательный момент нашего дня</p>
+  </div>
+
+  <div class="timeline-item">
+    <span class="time">17:00</span>
+    <h3>Банкет</h3>
+    <p>Ужин, поздравления и тёплые слова</p>
+  </div>
+
+  <div class="timeline-item">
+    <span class="time">20:00</span>
+    <h3>Танцы</h3>
+    <p>Музыка, веселье и праздничная атмосфера</p>
+  </div>
+
+</div>
+<div class="arrow" style="font-size: 100px;">↓</div>
 </section>
 
 <section>
@@ -338,7 +507,7 @@ color:white;
 <div class="color color4"></div>
 <div class="color color5"></div>
 </div>
-<div class="arrow">↓</div>
+<div class="arrow" style="font-size: 100px;">↓</div>
 </section>
 
 <section>
@@ -406,6 +575,24 @@ document.getElementById("wishText").innerText = text[type]
 
 }
 
+</script>
+ 
+<script>
+  /* тайминг */
+const items = document.querySelectorAll(".timeline-item");
+
+function showTimeline() {
+  items.forEach(item => {
+    const position = item.getBoundingClientRect().top;
+    const screenHeight = window.innerHeight;
+
+    if (position < screenHeight - 100) {
+      item.classList.add("active");
+    }
+  });
+}
+
+window.addEventListener("scroll", showTimeline);
 </script>
 
 </body>
